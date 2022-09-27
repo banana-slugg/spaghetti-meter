@@ -1,5 +1,5 @@
 import { useState, useEffect } from "preact/hooks";
-import "./app.css";
+import Controller from "./controller";
 
 export function App() {
     const REST_ADDR = "https://spagapi.crimsin.net";
@@ -50,19 +50,23 @@ export function App() {
         <>
             <div>
                 <p>{level}</p>
-                <form onSubmit={submitHandler}>
-                    <button type="submit" name="submit">
-                        Submit
-                    </button>
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        onChange={inputHandler}
-                        onInput={inputHandler}
-                    />
-                    <p>{isLoggedIn ? "true" : "false"}</p>
+
+                <form className="form-control" onSubmit={submitHandler}>
+                    <div className="input-group">
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            onChange={inputHandler}
+                            onInput={inputHandler}
+                            placeholder="Password"
+                            className="input input-bordered"
+                        />
+                        <button className="btn btn-square" type="submit" name="submit"></button>
+                    </div>
                 </form>
+                <p>{isLoggedIn ? "true" : "false"}</p>
+                <Controller password={password} url={REST_ADDR} />
             </div>
         </>
     );
