@@ -12,7 +12,7 @@ export default function Nav() {
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
-                            class="inline-block w-5 h-5 stroke-current"
+                            class="inline-block h-5 w-5 stroke-current"
                         >
                             <path
                                 stroke-linecap="round"
@@ -24,7 +24,7 @@ export default function Nav() {
                     </label>
                     <ul
                         tabIndex={0}
-                        className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-neutral rounded-box w-52"
+                        className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-neutral p-2 shadow"
                     >
                         <li>
                             <a>FAQ</a>
@@ -34,7 +34,7 @@ export default function Nav() {
                         </li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Spaghetti Meter</a>
+                <a className="btn btn-ghost text-xl normal-case">Spaghetti Meter</a>
             </div>
 
             <div className="navbar-end">
@@ -43,7 +43,7 @@ export default function Nav() {
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        class="inline-block w-5 h-5 stroke-current"
+                        class="inline-block h-5 w-5 stroke-current"
                     >
                         <path
                             stroke-linecap="round"

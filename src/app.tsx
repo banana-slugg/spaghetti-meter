@@ -49,7 +49,7 @@ export function App() {
 
     return (
         <>
-            <div className="w-full h-screen flex items-center flex-col">
+            <div className="flex h-screen w-full flex-col items-center">
                 <Nav />
                 <p>{level}</p>
 
