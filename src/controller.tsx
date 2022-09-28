@@ -3,7 +3,7 @@ type ControllerProps = {
     url: string;
 };
 
-export default function Controller({ password, url }: ControllerProps) {
+export default function Nav({ password, url }: ControllerProps) {
     function post(level: number) {
         fetch(url, {
             method: "POST",
@@ -22,7 +22,7 @@ export default function Controller({ password, url }: ControllerProps) {
             {Array.from(Array(10), (e, i) => {
                 return (
                     <button
-                        className="btn"
+                        className="btn btn-square btn-xs sm:btn-sm md:btn-md lg:btn-lg"
                         key={i}
                         onClick={() => {
                             post(i + 1);

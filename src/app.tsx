@@ -1,5 +1,6 @@
 import { useState, useEffect } from "preact/hooks";
 import Controller from "./controller";
+import Nav from "./nav";
 
 export function App() {
     const REST_ADDR = "https://spagapi.crimsin.net";
@@ -48,7 +49,8 @@ export function App() {
 
     return (
         <>
-            <div>
+            <div className="w-full h-screen flex items-center flex-col">
+                <Nav />
                 <p>{level}</p>
 
                 <form className="form-control" onSubmit={submitHandler}>
@@ -62,7 +64,9 @@ export function App() {
                             placeholder="Password"
                             className="input input-bordered"
                         />
-                        <button className="btn btn-square" type="submit" name="submit"></button>
+                        <button className="btn" type="submit" name="submit">
+                            Login
+                        </button>
                     </div>
                 </form>
                 <p>{isLoggedIn ? "true" : "false"}</p>
