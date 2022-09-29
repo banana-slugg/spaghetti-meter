@@ -1,9 +1,11 @@
-import { useContext } from "preact/hooks";
+import { useContext, useState } from "preact/hooks";
 import AppContext from "../utilities/appcontext";
 import Login from "./login";
+import Error from "./error";
 
 export default function Nav() {
     const context = useContext(AppContext);
+    const [badLogins, incrementBadLogins] = useState(0);
     return (
         <div className="navbar bg-base-100 shadow">
             <div className="navbar-start">
@@ -30,8 +32,10 @@ export default function Nav() {
                         <Login
                             isLoggedIn={context.isLoggedIn}
                             password={context.password}
+                            badLogins={badLogins}
                             setPassword={context.setPassword}
                             setLogin={context.setLogin}
+                            incrementBadLogins={incrementBadLogins}
                         />
                     </div>
                 </div>
@@ -56,6 +60,7 @@ export default function Nav() {
                     </svg>
                 </button>
             </div>
+            <Error errors={badLogins} />
         </div>
     );
 }

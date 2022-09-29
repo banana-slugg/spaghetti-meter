@@ -1,14 +1,24 @@
 import { handleAuth } from "../utilities/handlers";
 import type { StateUpdater } from "preact/hooks";
+import Error from "./error";
 
 type LoginProps = {
     isLoggedIn: boolean;
     password: string;
+    badLogins: number;
     setLogin: StateUpdater<boolean>;
     setPassword: StateUpdater<string>;
+    incrementBadLogins: StateUpdater<number>;
 };
 
-export default function Login({ isLoggedIn, password, setLogin, setPassword }: LoginProps) {
+export default function Login({
+    isLoggedIn,
+    password,
+    badLogins,
+    setLogin,
+    setPassword,
+    incrementBadLogins,
+}: LoginProps) {
     const submitHandler = (e: JSX.TargetedEvent<HTMLFormElement, Event>) => {
         e.preventDefault();
 
@@ -22,10 +32,14 @@ export default function Login({ isLoggedIn, password, setLogin, setPassword }: L
             .then((res) => {
                 if (res.status === 200) {
                     setLogin(true);
+                } else {
+                    if (badLogins < 5) {
+                        incrementBadLogins((badLogins = badLogins + 1));
+                    }
                 }
             })
-            .catch((error) => {
-                error.log(error);
+            .catch(() => {
+                incrementBadLogins(badLogins++);
             });
     };
 
@@ -49,7 +63,12 @@ export default function Login({ isLoggedIn, password, setLogin, setPassword }: L
                     className="input input-bordered"
                     disabled={isLoggedIn}
                 />
-                <button className={`btn ${isLoggedIn ? "btn-error" : "btn-primary"}`} type="submit" name="submit">
+                <button
+                    className={`btn ${isLoggedIn ? "btn-error" : "btn-primary"}`}
+                    type="submit"
+                    name="submit"
+                    disabled={badLogins >= 5}
+                >
                     {isLoggedIn ? "Logout" : "Login"}
                 </button>
             </div>
