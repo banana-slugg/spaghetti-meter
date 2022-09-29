@@ -61,7 +61,7 @@ export default function Login({
                     onInput={inputHandler}
                     placeholder="Password"
                     className="input input-bordered"
-                    disabled={isLoggedIn}
+                    disabled={isLoggedIn || badLogins >= 5}
                 />
                 <button
                     className={`btn ${isLoggedIn ? "btn-error" : "btn-primary"}`}
