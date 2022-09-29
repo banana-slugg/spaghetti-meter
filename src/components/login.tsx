@@ -47,9 +47,10 @@ export default function Login({ isLoggedIn, password, setLogin, setPassword }: L
                     onInput={inputHandler}
                     placeholder="Password"
                     className="input input-bordered"
+                    disabled={isLoggedIn}
                 />
-                <button className="btn btn-primary" type="submit" name="submit">
-                    Login
+                <button className={`btn ${isLoggedIn ? "btn-error" : "btn-primary"}`} type="submit" name="submit">
+                    {isLoggedIn ? "Logout" : "Login"}
                 </button>
             </div>
         </form>

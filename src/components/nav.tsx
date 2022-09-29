@@ -5,7 +5,7 @@ import Login from "./login";
 export default function Nav() {
     const context = useContext(AppContext);
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 shadow">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-square btn-ghost">
@@ -23,7 +23,7 @@ export default function Nav() {
                             ></path>
                         </svg>
                     </label>
-                    <ul
+                    <div
                         tabIndex={0}
                         className="dropdown-content menu rounded-box menu-compact mt-3 bg-neutral p-2 shadow"
                     >
@@ -33,11 +33,12 @@ export default function Nav() {
                             setPassword={context.setPassword}
                             setLogin={context.setLogin}
                         />
-                    </ul>
+                    </div>
                 </div>
-                <a className="btn btn-ghost text-xl normal-case">Spaghetti Meter</a>
             </div>
-
+            <div className="navbar-center">
+                <h1 className="text-4xl font-bold">🍝 Spaghetti Meter 🍝</h1>
+            </div>
             <div className="navbar-end">
                 <button className="btn btn-ghost btn-circle">
                     <svg
