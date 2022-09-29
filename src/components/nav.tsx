@@ -1,13 +1,14 @@
-import { useState } from "preact/hooks";
+import { useContext } from "preact/hooks";
+import AppContext from "../utilities/appcontext";
+import Login from "./login";
 
 export default function Nav() {
-    const [isOpen, toggleOpen] = useState(false);
-
+    const context = useContext(AppContext);
     return (
-        <div className="navbar bg-neutral">
+        <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost btn-square">
+                    <label tabIndex={0} className="btn btn-square btn-ghost">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -24,14 +25,14 @@ export default function Nav() {
                     </label>
                     <ul
                         tabIndex={0}
-                        className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-neutral p-2 shadow"
+                        className="dropdown-content menu rounded-box menu-compact mt-3 bg-neutral p-2 shadow"
                     >
-                        <li>
-                            <a>FAQ</a>
-                        </li>
-                        <li>
-                            <a>Login</a>
-                        </li>
+                        <Login
+                            isLoggedIn={context.isLoggedIn}
+                            password={context.password}
+                            setPassword={context.setPassword}
+                            setLogin={context.setLogin}
+                        />
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-xl normal-case">Spaghetti Meter</a>
