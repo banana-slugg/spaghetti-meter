@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "preact/hooks";
+import { useContext } from "preact/hooks";
 import AppContext from "../utilities/appcontext";
 import meterbg from "../assets/meterbg.svg";
 import needle from "../assets/needle.svg";
@@ -6,8 +6,6 @@ import "../styles/meter.css";
 
 export default function Meter() {
     const context = useContext(AppContext);
-    const [step, setStep] = useState("one");
-
     const steps: { [key: number]: string } = {
         1: "one",
         2: "two",
