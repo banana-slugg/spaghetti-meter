@@ -1,0 +1,30 @@
+.one {
+    transform: rotate(-94deg);
+}
+.two {
+    transform: rotate(-74deg);
+}
+.three {
+    transform: rotate(-54deg);
+}
+.four {
+    transform: rotate(-34deg);
+}
+.five {
+    transform: rotate(-14deg);
+}
+.six {
+    transform: rotate(14deg);
+}
+.seven {
+    transform: rotate(34deg);
+}
+.eight {
+    transform: rotate(54deg);
+}
+.nine {
+    transform: rotate(74deg);
+}
+.ten {
+    transform: rotate(94deg);
+}
