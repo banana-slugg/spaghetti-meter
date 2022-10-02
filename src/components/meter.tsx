@@ -21,20 +21,16 @@ export default function Meter() {
 
     return (
         <div className="flex h-min w-full flex-col">
-            {context.level}
-            <div className="relative flex w-full items-center justify-center select-none touch-none">
-                <img src={meterbg} alt="a" className="drop-shadow-xl" />
+            <div className="relative flex w-full touch-none select-none justify-center">
+                <img src={meterbg} alt="a" className="drop-shadow-lg" />
                 <img
                     src={needle}
                     alt="a"
-                    className={`absolute origin-[50%_86.5%] self-end drop-shadow-2xl drop-shadow-white transition-transform duration-1000 ${
-                        steps[context.level] 
+                    className={`absolute origin-[50%_86.5%] self-end drop-shadow-2xl transition-transform duration-1000 ${
+                        steps[context.level]
                     }`}
                 />
             </div>
         </div>
     );
 }
-
-//  9: 74
-// 10: 94

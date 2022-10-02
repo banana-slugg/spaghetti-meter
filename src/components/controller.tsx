@@ -12,15 +12,16 @@ export default function Nav() {
         <div className="btn-group">
             {Array.from(Array(10), (e, i) => {
                 return (
-                    <button
+                    <input
+                        disabled={!context.isLoggedIn}
+                        type="radio"
+                        name="options"
+                        data-title={i + 1}
                         className="btn btn-square btn-xs sm:btn-sm md:btn-md lg:btn-lg"
-                        key={i}
                         onClick={() => {
                             handleClick(i + 1);
                         }}
-                    >
-                        {i + 1}
-                    </button>
+                    />
                 );
             })}
         </div>

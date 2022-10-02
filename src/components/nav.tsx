@@ -7,7 +7,7 @@ export default function Nav() {
     const context = useContext(AppContext);
     const [badLogins, incrementBadLogins] = useState(0);
     return (
-        <div className="navbar bg-base-100 shadow">
+        <div className="self navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-square btn-ghost">

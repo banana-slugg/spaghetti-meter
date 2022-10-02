@@ -24,10 +24,16 @@ export function App() {
     return (
         <>
             <AppContext.Provider value={{ level, password, isLoggedIn, setLevel, setPassword, setLogin }}>
-                <div className="flex h-screen w-full flex-col items-center">
+                <div className="flex h-screen w-screen flex-col">
                     <Nav />
-                    <Meter />
-                    <Controller />
+                    <div className="flex h-full w-full flex-col justify-center">
+                        <div className="flex h-full w-full items-end justify-center">
+                            <Meter />
+                        </div>
+                        <div className="flex h-1/2 w-full items-end justify-center pb-14">
+                            <Controller />
+                        </div>
+                    </div>
                 </div>
             </AppContext.Provider>
         </>
